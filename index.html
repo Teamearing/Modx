@@ -1,0 +1,449 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from zainowner.online/NOOBHACKER/ by HTTrack Website Copier/3.x [XR&CO'2017], Fri, 11 Oct 2024 14:27:24 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOOB MODS</title>
+    <style>
+        /* Basic styles for the popup */
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .popup-box {
+            background-color: #000;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            width: 280px;
+        }
+
+        .popup-box h3 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .popup-box button {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 8px;
+            background-color: #00FFFF;
+            color: black;
+            border: 2px solid #00FFFF;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .popup-box button:hover {
+            color: #00FFFF;
+            background-color: black;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(0, 255, 255, 0.8);
+        }
+
+        /* Particle.js background */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Place behind everything */
+        }
+
+        /* Apply background image to the body */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('images/bg.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: #00FFFF;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .login-container {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            width: 300px;
+            text-align: center;
+        }
+
+        .logo {
+            margin-bottom: 15px;
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #00FFFF;
+            padding: 5px;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            width: 85%;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+            color: #00FFFF;
+            text-transform: uppercase;
+        }
+
+        .input-group select, 
+        .input-group input {
+            width: 100%;
+            padding: 6.8px;
+            border: 2px solid #00FFFF;
+            border-radius: 10px;
+            background-color: black;
+            color: #00FFFF;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-group select:hover, 
+        .input-group input:hover {
+            border-color: #00CCCC;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .get-key-button, .login-button {
+            padding: 12px 20px;
+            background-color: #00FFFF;
+            color: black;
+            border: 2px solid #00FFFF;
+            border-radius: 50px;
+            font-size: 12px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        .get-key-button:hover, .login-button:hover {
+            color: #00FFFF;
+            background-color: black;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(0, 255, 255, 0.8);
+        }
+
+        /* Styling the Search Version button */
+        .search-button {
+            background-color: #00FFFF;
+            color: black;
+            border: 2px solid #00FFFF;
+            border-radius: 500px;
+            padding: 5px 18px;
+            font-size: 10px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60%;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        .search-button i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+
+        .search-button:hover {
+            color: #00FFFF;
+            background-color: black;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 30px rgba(0, 255, 255, 0.8);
+        }
+
+        /* Mobile-specific background image */
+        @media only screen and (max-width: 600px) {
+            body {
+                background-image: url('images/bg.gif');
+            }
+        }
+
+        /* Error message styling */
+        .error-message {
+            background-color: rgba(0, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 300px;
+            width: 100%;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+
+    <!-- Include ParticleJS -->
+    <script src="js/particles.min.js"></script>
+    <!-- Include FingerprintJS for device fingerprinting -->
+    <script src="js/fp.min.js"></script>
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="css/all.min.css">
+</head>
+<body>
+<div id="particles-js"></div>
+    <div class="login-container">
+        <div class="logo">
+            <img src="images/ZAIN.jpg" alt="Logo">
+            <h3>GOD PRIVATE MOD</h3>
+        </div>
+        <button type="button" class="search-button" onclick="showPopup()">
+            <i class="fas fa-search"></i> SEARCH VERSION
+        </button>
+        <form action="#" method="POST" class="form-container" onsubmit="return validateLogin(event)">
+            <div class="input-group">
+                <label for="game_version">Game Version</label>
+                <input type="text" id="game_version" name="game_version" value="V4" readonly="" required="">
+            </div>
+            <div class="input-group">
+                <label for="game_name">Game Name</label>
+                <input type="text" id="game_name" name="game_name" placeholder="-" readonly="" required="">
+            </div>
+            <div class="input-group">
+                <label for="license_key">License Key</label>
+                <input type="text" id="license_key" name="license_key" required="">
+            </div>
+            <input type="hidden" id="device_info" name="device_info" value="">
+
+            <div class="button-group">
+                <button type="button" class="get-key-button">GET KEY</button>
+                <button type="submit" class="login-button">LOGIN</button>
+            </div>
+        </form>
+
+        <!-- Error message display -->
+        <div id="error-message" class="error-message" style="display: none;"></div>
+    </div>
+
+    <!-- Popup container -->
+    <div id="popup-container" class="popup-container">
+        <div class="popup-box">
+            <h3>SEARCH VERSION</h3>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>
+    <div class="popup-container" id="popupContainer">
+        <div class="popup-box">
+            <h3>Select a Game Name</h3>
+            <button onclick="selectGameName('91 Club')">91 Club</button>
+            <button onclick="selectGameName('Tiranga')">Tiranga</button>
+            <button onclick="selectGameName('OKWIN')">OKWIN</button>
+            <button onclick="selectGameName('55 Club')">55 Club</button>
+            <button onclick="selectGameName('82 Lottery')">82 Lottery</button>
+            <button onclick="selectGameName('IN99')">IN99</button>
+            <button onclick="selectGameName('Big Mumbai')">Big Mumbai</button>
+            <button onclick="selectGameName('BDG WIN')">BDG WIN</button>
+            <button onclick="selectGameName('Goa Game')">Goa Game</button>
+            <button onclick="selectGameName('TC Lottery')">TC Lottery</button>
+        </div>
+    </div>
+
+    <script>
+        function showPopup() {
+            document.getElementById('popupContainer').style.display = 'flex';
+        }
+
+        function selectGameName(gameName) {
+            document.getElementById('game_name').value = gameName;
+            document.getElementById('popupContainer').style.display = 'none';
+        }
+
+        function redirectToTelegram() {
+            window.location.href = "../../external.html?link=https://t.me/+WpmHoGixzvkyOTc1";
+        }
+
+        // Capture device fingerprint and additional info (screen size, user-agent)
+        async function getFingerprint() {
+            const fp = await FingerprintJS.load();
+            const result = await fp.get();
+            
+            // Capture screen size and user-agent for additional consistency
+            const screenSize = screen.width + 'x' + screen.height;
+            const userAgent = navigator.userAgent;
+
+            // Combine visitorId (FingerprintJS) with screen size and user-agent
+            const deviceInfo = result.visitorId + '|' + screenSize + '|' + userAgent;
+
+            // Set device info value in hidden input field
+            document.getElementById('device_info').value = deviceInfo;
+        }
+
+        // Call the function on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            getFingerprint();
+        });
+
+        // Initialize Particle.js
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#ffffff'
+                },
+                shape: {
+                    type: 'circle',
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'repulse'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+        
+            repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+        function validateLogin(event) {
+            event.preventDefault(); // Prevent form submission for validation
+            const licenseKeyInput = document.getElementById('license_key').value;
+            const expectedKey = 'TEAM EARNING'; // Replace with your actual key
+
+            if (licenseKeyInput === expectedKey) {
+                // Redirect to zain.html
+                window.location.href = "zain.html";
+            } else {
+                // Redirect to the specified URL if the key is incorrect
+                window.location.href = "../../external.html?link=https://t.me/+WpmHoGixzvkyOTc1";
+            }
+        }
+    </script>
+
+</body>
+<!-- Mirrored from zainowner.online/NOOBHACKER/ by HTTrack Website Copier/3.x [XR&CO'2017], Fri, 11 Oct 2024 14:27:30 GMT -->
+</html>
